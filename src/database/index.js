@@ -4,6 +4,15 @@ const User = require("../models/User")
 
 const connection = new Sequelize(dbConfig)
 
+//try{
+    //connection.authenticate()
+  //  console.log("Sucesso  na conexão!!!")
+//}catch(erro){
+  //  console.log("Não foi possível a conexão", erro)
+//}
+
+
+
 User.init(connection)
 
 
