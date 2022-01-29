@@ -1,5 +1,5 @@
 ## 🚀 Sequelize-Mysql-Express-CRUD
-Aplicação em MVC (Models, View e Controller), no qual estaremos inserindo dados de nome de usuários e seus respectivos email`s, e, guardando no nosso banco de dados "cadastro-usuario".
+Aplicação em MVC (Models, View e Controller), no qual estaremos inserindo dados de nome de usuários e seus respectivos email`s, e, armazenando no banco de dados.
 
 
 ## Funcionalidades da aplicação

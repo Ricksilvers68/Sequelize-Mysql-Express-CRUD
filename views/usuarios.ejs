@@ -47,9 +47,10 @@
         </table>
         <nav aria-label="Page navigation example">
 
-            <ul class="pagination">
+            <ul class="nav nav-tabs card-header-tabs">
                 <% for(let npage = 1; npage <= totalPagina; npage ++){ %>
-                <li class="page-item"><a class="page-link" href="?page=<%= npage %>"><%= npage %></a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-outline-warning" href="?page=<%= npage %>"><%= npage %></a></li>
+                
                 <% } %>
             </ul>
         </nav>
