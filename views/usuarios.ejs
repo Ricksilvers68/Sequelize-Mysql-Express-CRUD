@@ -21,34 +21,38 @@
 
     <main style="width: 90%; margin: 0 auto;">
 
-       
-        <div>
-            <table class="table table-striped table-bordered">
-                <thead class="table-dark text-center">
-                    <tr>
-                        <th>código</th>
-                        <th>Nome do usuário</th>
-                        <th>E-mail</th>
-                    </tr>
-                    <% usuario.forEach(function(user){ %>
-                        <thead class="table-warning">
-                            <th class="text-black-50 text-center">
-                                <%= user.id %>
-                            </th>
-                            <th class="text-black-50 text-center">
-                                <%= user.name %>
-                            </th>
-                            <th class="text-center" style="color: red;">
-                                <%= user.email %>
-                            </th>
-                        </thead>
-                        <% }) %>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>código</th>
+                    <th>Nome do usuário</th>
+                    <th>E-mail</th>
+                </tr>
+                <% usuario.forEach(function(user){ %>
+                    <thead class="table-warning">
+                        <th class="text-black-50 text-center">
+                            <%= user.id %>
+                        </th>
+                        <th class="text-black-50 text-center">
+                            <%= user.name %>
+                        </th>
+                        <th class="text-center" style="color: red;">
+                            <%= user.email %>
+                        </th>
+                    </thead>
+                    <% }) %>
 
 
-                </thead>
-            </table>
-        </div>
+            </thead>
+        </table>
+        <nav aria-label="Page navigation example">
 
+            <ul class="pagination">
+                <% for(let npage = 1; npage <= totalPagina; npage ++){ %>
+                <li class="page-item"><a class="page-link" href="?page=<%= npage %>"><%= npage %></a></li>
+                <% } %>
+            </ul>
+        </nav>
 
     </main>
 
