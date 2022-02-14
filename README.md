@@ -13,8 +13,9 @@ Acessar os arquivos da pasta `config database` e completar com o nome seu de usu
 * Ejs
 * CSS
 * Bootstrap
+---
 
-Made with by Ricardo [See my linkedIn](linkedin.com/in/ricardo-silveira-b03330131
+Made with by Ricardo [See my linkedIn](https://www.linkedin.com/in/ricardo-silveira-b03330131/
 )
 
 
