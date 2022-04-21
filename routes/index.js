@@ -13,6 +13,8 @@ router.get("/usuarios", UserController.index)
 router.put("/usuarios/:id", UserController.update)
 router.delete("/usuarios/:id", UserController.delete)
 
+router.get("/usuarios/search", UserController.search)
+
 
 
 module.exports = router;
