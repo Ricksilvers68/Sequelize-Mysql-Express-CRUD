@@ -5,9 +5,13 @@ const Op = Sequelize.Op
 
 module.exports = {
     index: async (req, res) => {
-        const usuarios = await User.findAll()
-
-        return res.render("usuarios", { usuarios })
+        const { page = 1 } = req.query
+        const { count: total, rows: usuarios } = await User.findAndCountAll({
+            limit: 8,
+            offset: (page - 1) * 8 //page-1 para iniciar a partir da 1ª página
+        })
+        let totalPagina = Math.round(total / 8)
+        return res.render("usuarios", { usuarios, totalPagina })
 
     },
 
@@ -41,17 +45,17 @@ module.exports = {
     },
 
     search: async (req, res) => {
-        const { key } = req.query
-         const usuarios = await User.findAll({
+        const {key} = req.query
+        const { page = 1 } = req.query
+        const { count: total, rows: usuarios } = await User.findAndCountAll({
             where: {
                 name: {
                     [Op.like]: `%${key}%`
                 }
-            }
+            } 
         })
-
-        return res.render("usuarios", { usuarios })
-
+        let totalPagina = Math.round(total / 8)
+        return res.render("usuarios", { usuarios, totalPagina })
     }
 }
 

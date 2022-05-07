@@ -79,6 +79,18 @@
 
             </thead>
         </table>
+
+        <nav aria-label="Page navigation">
+            <ul class="nav nav-tabs card-header-tabs">
+                <% for(let npage=1; npage <=totalPagina; npage ++){ %>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-warning" href="?page=<%= npage %>">
+                            <%= npage %>
+                        </a>
+                    </li>
+                    <% } %>
+            </ul>
+        </nav>
        
 
     </main>
