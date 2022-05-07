@@ -36,7 +36,7 @@ module.exports = {
 
     delete: async (req, res) => {
         const { id } = req.params
-       await User.destroy({
+        await User.destroy({
             where: {
                 id: id
             }
@@ -45,14 +45,14 @@ module.exports = {
     },
 
     search: async (req, res) => {
-        const {key} = req.query
+        const { key } = req.query
         const { page = 1 } = req.query
         const { count: total, rows: usuarios } = await User.findAndCountAll({
             where: {
                 name: {
                     [Op.like]: `%${key}%`
                 }
-            } 
+            }
         })
         let totalPagina = Math.round(total / 8)
         return res.render("usuarios", { usuarios, totalPagina })
