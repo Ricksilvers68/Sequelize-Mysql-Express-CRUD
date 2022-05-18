@@ -22,6 +22,13 @@ module.exports = {
 
     },
 
+    editForm: async (req,res) => {
+const {name, email} = req.body
+const { id } = req.params
+const edit = await User.findByPk(id)
+return res.render("updateUser", { edit })
+    },
+
     update: async (req, res) => {
         const { name, email } = req.body
         const { id } = req.params
@@ -32,6 +39,13 @@ module.exports = {
             }
         })
         return res.json({ msg: "Seus dados foram atualizados com sucesso!" })
+    },
+
+    deleteUser: async (req,res) => {
+        const {name, email} = req.body
+        const { id } = req.params
+        const edit = await User.findByPk(id)
+        return res.render("deleteUser", { edit })
     },
 
     delete: async (req, res) => {

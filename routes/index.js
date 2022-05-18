@@ -10,8 +10,14 @@ const UserController = require("../controllers/userController")
 
 router.post("/usuarios", UserController.store)
 router.get("/usuarios", UserController.index)
-router.put("/usuarios/:id", UserController.update)
-router.delete("/usuarios/:id", UserController.delete)
+
+//Rota para editar um usuario:
+router.get("/editar/:id", UserController.editForm)
+router.put("/editar/:id", UserController.update)
+
+//rota para selecionar usuário para excluir
+router.get("/deletar/:id", UserController.deleteUser)
+router.delete("/deletar/:id", UserController.delete)
 
 router.get("/usuarios/search", UserController.search)
 
