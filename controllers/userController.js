@@ -1,6 +1,7 @@
 const User = require("../src/models/User")
 const Sequelize = require("sequelize")
 const Op = Sequelize.Op
+
 //CRUD
 
 module.exports = {
@@ -16,23 +17,23 @@ module.exports = {
     },
 
     store: async (req, res) => {
-        const { name, email } = req.body
-        const usuarios = await User.create({ name, email })
+        const { name, email, password } = req.body
+        const usuarios = await User.create({ name, email, password })
         return res.json(usuarios)
 
     },
 
     editForm: async (req,res) => {
-const {name, email} = req.body
+const {name, email, password} = req.body
 const { id } = req.params
 const edit = await User.findByPk(id)
 return res.render("updateUser", { edit })
     },
 
     update: async (req, res) => {
-        const { name, email } = req.body
+        const { name, email, password } = req.body
         const { id } = req.params
-        await User.update({ name, email }, {
+        await User.update({ name, email, password }, {
 
             where: {
                 id: id
@@ -42,7 +43,7 @@ return res.render("updateUser", { edit })
     },
 
     deleteUser: async (req,res) => {
-        const {name, email} = req.body
+        const {name, email, password} = req.body
         const { id } = req.params
         const edit = await User.findByPk(id)
         return res.render("deleteUser", { edit })
@@ -72,4 +73,3 @@ return res.render("updateUser", { edit })
         return res.render("usuarios", { usuarios, totalPagina })
     }
 }
-

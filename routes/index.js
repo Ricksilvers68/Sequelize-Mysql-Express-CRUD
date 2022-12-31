@@ -7,11 +7,14 @@ const UserController = require("../controllers/userController")
 
 
 
-
-router.post("/usuarios", UserController.store)
 router.get("/usuarios", UserController.index)
+router.post("/usuarios", UserController.store)
 
-//Rota para editar um usuario:
+
+//Rota para inserir usuário
+//router.get("/usuarios", UserController.insert)
+
+//Rota para editar um usuario
 router.get("/editar/:id", UserController.editForm)
 router.put("/editar/:id", UserController.update)
 
